@@ -1,0 +1,57 @@
+CREATE SCHEMA IF NOT EXISTS `b2b_db` ;
+USE `b2b_db` ;
+
+-- -----------------------------------------------------
+-- Table `b2b_db`.`usuario`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `b2b_db`.`usuario` (
+  `idusuario` INT NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(45) NOT NULL,
+  `email` VARCHAR(45) NOT NULL,
+  `username` VARCHAR(45) NOT NULL,
+  `senha` VARCHAR(45) NOT NULL,
+  `tipouser` TINYINT NOT NULL,
+  PRIMARY KEY (`idusuario`),
+  UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE,
+  UNIQUE INDEX `username_UNIQUE` (`username` ASC) VISIBLE,
+  UNIQUE INDEX `idusuario_UNIQUE` (`idusuario` ASC) VISIBLE)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `b2b_db`.`postagem`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `b2b_db`.`postagem` (
+  `idpostagem` INT NOT NULL AUTO_INCREMENT,
+  `titulo` VARCHAR(45) NOT NULL,
+  `texto` VARCHAR(500) NOT NULL,
+  `data` DATETIME NOT NULL,
+  `usuario_idusuario` INT NOT NULL,
+  PRIMARY KEY (`idpostagem`),
+  INDEX `fk_postagem_usuario_idx` (`usuario_idusuario` ASC) VISIBLE,
+  UNIQUE INDEX `idpostagem_UNIQUE` (`idpostagem` ASC) VISIBLE,
+  CONSTRAINT `fk_postagem_usuario`
+    FOREIGN KEY (`usuario_idusuario`)
+    REFERENCES `b2b_db`.`usuario` (`idusuario`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+
+-- -----------------------------------------------------
+-- INSERT Post para exemplo
+-- -----------------------------------------------------
+
+INSERT INTO `postagem`(`titulo`, `texto`, `data`, `usuario_idusuario`) VALUES ('Título Postagem','Texto - texto - texto - texto - texto - texto - texto - texto - texto - texto - texto - texto - texto - texto - texto - texto - texto - texto - texto - texto - texto', '2021-07-25 12:00:00', 1)
+
+
+-- -----------------------------------------------------
+-- INSERT Usuario ADMIN para controle
+-- -----------------------------------------------------
+
+INSERT INTO `usuario`(`nome`, `email`, `username`, `senha`, `tipouser`) VALUES ('Admin','admin@email.com', 'admin','admin',0)

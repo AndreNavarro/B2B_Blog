@@ -1,0 +1,19 @@
+button {
+  border: none;
+  color: black;
+  padding: 3px 28px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 27px;
+  cursor: pointer;
+  justify-content: right;
+  background-color: white;
+  border-radius: 5px;
+  width: 80%;
+}
+
+fieldset#toggle-menu {
+  width: 25%;
+}

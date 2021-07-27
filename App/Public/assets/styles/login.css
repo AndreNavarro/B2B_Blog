@@ -1,0 +1,28 @@
+form .acesso {
+  padding: 30px;
+  background-color: red;
+}
+
+form .cadastro {
+  padding: 30px;
+}
+
+fieldset {
+  justify-content: center;
+  background-color: grey;
+  display: inline;
+  width: 30%;
+  border-radius: 5px;
+  border: 0;
+  margin-left: 10%;
+}
+
+fieldset#acesso {
+  margin: 72px;
+  margin-left: 10%;
+}
+
+input.button:active{
+  background-color:#cc0000;
+  color: white;
+}

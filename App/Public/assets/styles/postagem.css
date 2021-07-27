@@ -1,0 +1,25 @@
+ol {
+  margin: 5%;
+  padding: 5px;
+  background-color: grey;
+}
+
+li {
+  list-style: none;
+	margin: 5px;
+  padding: 5px;
+  background-color: white;
+}
+
+p.autor {
+  margin: 5px;
+}
+
+p.titulo-post {
+  margin: 5px;
+}
+
+p.texto {
+  margin: 5px;
+  padding-bottom: 30px;
+}

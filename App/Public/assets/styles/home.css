@@ -1,0 +1,9 @@
+section {
+  background-color: #bfbfbf;
+  padding: 1%;
+}
+
+h2, h1.titulo-pagina {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  margin-left: 10%;
+}
